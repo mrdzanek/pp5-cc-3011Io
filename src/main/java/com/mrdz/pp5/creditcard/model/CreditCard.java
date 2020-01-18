@@ -2,9 +2,14 @@ package com.mrdz.pp5.creditcard.model;
 
 import java.math.BigDecimal;
 
-public class CreditCard {
+class CreditCard {
     private BigDecimal limit;
     private BigDecimal saldo;
+    private String number;
+
+    public CreditCard(String number) {
+        this.number = number;
+    }
 
     public void assignLimit(BigDecimal initialLimit) {
         if (BigDecimal.valueOf(1000).compareTo(initialLimit) == 1) {
@@ -24,5 +29,14 @@ public class CreditCard {
 
     public BigDecimal currentBalance() {
         return saldo;
+    }
+
+    public String getNumber() {
+        return this.getNumber();
+    }
+
+
+    public CardSummary getSummary() {
+        return new CardSummary(saldo);
     }
 }

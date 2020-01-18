@@ -1,9 +1,5 @@
 package com.mrdz.pp5.creditcard.model;
 
-import com.sun.org.apache.xpath.internal.objects.XNumber;
-
-import java.math.BigDecimal;
-
 public class CreditCardFacade {
     private InMemoryCreditCardStorage creditCardStorage;
 
@@ -11,9 +7,9 @@ public class CreditCardFacade {
         this.creditCardStorage = creditCardStorage;
     }
 
-    public void withdraw(String number, BigDecimal amount) {
-        CreditCard creditCard = creditCardStorage.load(number);
-        creditCard.withdraw(amount);
+    public void withdraw(WithdrawCommand withdrawCommand) {
+        CreditCard creditCard = creditCardStorage.load(withdrawCommand.getNumber());
+        creditCard.withdraw(withdrawCommand.getAmount());
         creditCardStorage.add(creditCard);
     }
 
