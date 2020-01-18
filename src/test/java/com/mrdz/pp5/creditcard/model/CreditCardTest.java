@@ -12,7 +12,7 @@ public class CreditCardTest {
     @Test
     public void itAllowAssignLimitToCreditCard() {
         //Arrange // Given
-        CreditCard creditCard = new CreditCard();
+        CreditCard creditCard = new CreditCard("1234-56789");
         //Act     // When
         creditCard.assignLimit(BigDecimal.valueOf(INITIAL_LIMIT));
         //Assert  // Then
@@ -20,7 +20,7 @@ public class CreditCardTest {
     }
     @Test
     public void denyAssignLimitBelowMinimum() {
-        CreditCard creditCard = new CreditCard();
+        CreditCard creditCard = new CreditCard("1234-56789");
 
         try {
             creditCard.assignLimit(BigDecimal.valueOf(500));
@@ -33,7 +33,7 @@ public class CreditCardTest {
     @Test
     public void withdrawFromCard() {
         //Arrange // Given
-        CreditCard creditCard = new CreditCard();
+        CreditCard creditCard = new CreditCard("1234-56789");
         creditCard.assignLimit(BigDecimal.valueOf(INITIAL_LIMIT));
 
         // Act /When
