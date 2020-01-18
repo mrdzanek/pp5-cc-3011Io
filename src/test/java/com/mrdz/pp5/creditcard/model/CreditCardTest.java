@@ -29,6 +29,18 @@ public class CreditCardTest {
             Assert.assertTrue(true);
         }
     }
+
+    @Test
+    public void withdrawFromCard() {
+        //Arrange // Given
+        CreditCard creditCard = new CreditCard();
+        creditCard.assignLimit(BigDecimal.valueOf(INITIAL_LIMIT));
+
+        // Act /When
+        creditCard.withdraw(BigDecimal.valueOf(200));
+        //Assert // Then
+        Assert.assertEquals(creditCard.currentBalance(), BigDecimal.valueOf(800));
+    }
 }
 
 
